@@ -17,6 +17,10 @@ This repo uses  Express.js API
 
 ![Insomnia](https://img.shields.io/badge/Insomnia-black?style=for-the-badge&logo=insomnia&logoColor=5849BE)
 
+## Video
+https://clipchamp.com/watch/a9KqwEjY0IS
+
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
