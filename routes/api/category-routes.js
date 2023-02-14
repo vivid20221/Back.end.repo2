@@ -4,7 +4,29 @@ const { Category, Product } = require('../../models');
 // The `/api/categories` endpoint
 
 router.get("/", async (req, res) => {
-  // find all categories
+  try {
+    const rawCategoryData = await rawCategoryData.findAll({
+      include: [{ model: Product}],
+
+    });
+    console.log(rawCategoryData);
+
+    const categoryData = rawCategoryData.map((category) =>
+    category.get({ plain: true })
+      );
+      res.status(200).json(categoryData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+});
+
+
+
+
+
+
+router.get("/:id", async (req, res) => {
+ 
   try {
   const rawCategoryData = await Category.findByPk(req.params.id, {
     include:[{model: Product}],

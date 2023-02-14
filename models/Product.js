@@ -13,7 +13,7 @@ Product.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoINcrement: true
+      autoIncrement: true
     },
     // define columns
    product_name: {
