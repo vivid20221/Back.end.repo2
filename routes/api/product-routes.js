@@ -37,6 +37,7 @@ router.get('/:id', async (req, res) => {
 
     }
     const productData = rawProductData.get({ plain: true});
+    res.status(200).json(productData);
   }catch (err) {
     res.status(500).json(err);
   }

@@ -5,7 +5,7 @@ const { Category, Product } = require('../../models');
 
 router.get("/", async (req, res) => {
   try {
-    const rawCategoryData = await rawCategoryData.findAll({
+    const rawCategoryData = await Category.findAll({
       include: [{ model: Product}],
 
     });
@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
     category.get({ plain: true })
       );
       res.status(200).json(categoryData);
-    } catch (err) {
+    } catch (err) { console.log(err);
       res.status(500).json(err);
     }
 });
@@ -38,7 +38,7 @@ router.get("/:id", async (req, res) => {
 
   const categoryData = rawCategoryData.get({ plain: true });
   res.status(200).json(categoryData);
-} catch (err) {
+} catch (err) { console.log(err);
   res.status(500).json(err);
 }
 });
@@ -51,7 +51,7 @@ router.get("/:id", async (req, res) => {
 router.post("/",  async (req, res) => {
   try {
     const { categoryName } = req.body;
-    await category.create({ category_name: categoryName});
+    await Category.create({ category_name: categoryName});
     res.status(200).json({ message: "Category created!" });
   } catch (err) {
     res.status(500).json(err);

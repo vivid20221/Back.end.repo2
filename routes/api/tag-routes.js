@@ -22,7 +22,7 @@ router.get('/:id', async (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
   try {
-    const rawTagData = await tag.findByPk(req.params.id, {
+    const rawTagData = await Tag.findByPk(req.params.id, {
       //through ProductTag because we used the ProductTag model to make a connection between the Product model and the Tag Model
       include: [{ model: Product, through: ProductTag}]
 
@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
     const tagData = rawTagData.get({plain: true});
     res.status(200).json(tagData);
 
-  }catch (err) {
+  }catch (err) { console.log(err);
     res.status(500).json(err);
   }
 });
